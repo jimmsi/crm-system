@@ -24,7 +24,7 @@ public class ActionDaoJdbcImpl implements ActionDao {
 	}
 
 	public void create(Action newAction) {
-		template.update(INSERT_SQL,newAction.getDetails(), newAction.isComplete(),newAction.getOwningUser(),  newAction.getRequiredBy());
+		template.update(INSERT_SQL, newAction.getDetails(), newAction.isComplete(),newAction.getOwningUser(),  newAction.getRequiredBy());
 	}
 
 	private void createTables()	{
@@ -47,7 +47,6 @@ public class ActionDaoJdbcImpl implements ActionDao {
 		this.template.update(DELETE_SQL, oldAction.getActionId());
 	}
 }
-
 
 class ActionRowMapper implements RowMapper<Action> {
 	public Action mapRow(ResultSet rs, int arg1) throws SQLException 	{
