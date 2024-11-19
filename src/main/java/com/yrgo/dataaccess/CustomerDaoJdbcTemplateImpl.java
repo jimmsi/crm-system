@@ -2,14 +2,18 @@ package com.yrgo.dataaccess;
 
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+@Repository
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     private static final String DELETE_SQL = "DELETE FROM CUSTOMER WHERE CUSTOMER_ID=?";
@@ -23,6 +27,7 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     private JdbcTemplate template;
 
+    @Autowired
     public CustomerDaoJdbcTemplateImpl(JdbcTemplate template){
         this.template = template;
     }
@@ -31,6 +36,7 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
         template.update(INSERT_SQL, newCustomer.getCustomerId(), newCustomer.getCompanyName(), newCustomer.getEmail(), newCustomer.getTelephone(), newCustomer.getNotes());
     }
 
+    @PostConstruct
     private void createTables() {
         try{
             this.template.update("CREATE TABLE CUSTOMER (CUSTOMER_ID VARCHAR(20), COMPANY_NAME VARCHAR(100), EMAIL VARCHAR(100), TELEPHONE VARCHAR(20), NOTES VARCHAR(255))");
