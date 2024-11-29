@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-@Repository
+
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     private static final String DELETE_SQL = "DELETE FROM CUSTOMER WHERE CUSTOMER_ID=?";

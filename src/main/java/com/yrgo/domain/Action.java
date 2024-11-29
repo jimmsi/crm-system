@@ -46,7 +46,6 @@ public class Action {
 
 	public boolean isOverdue()	{
 		Calendar dateNow = new java.util.GregorianCalendar();
-
 		return dateNow.after(this.requiredBy);
 	}
 
@@ -59,7 +58,6 @@ public class Action {
 	public void completeAction()	{
 		this.complete = true;
 	}
-
 
 	public boolean isComplete() 	{
 		return this.complete;
