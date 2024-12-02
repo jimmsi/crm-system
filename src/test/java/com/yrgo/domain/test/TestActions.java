@@ -2,12 +2,12 @@ package com.yrgo.domain.test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
-import org.junit.Test;
-
 import com.yrgo.domain.Action;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class TestActions{
 
